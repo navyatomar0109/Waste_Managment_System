@@ -1,0 +1,19 @@
+kind = "web"
+  previewPath = "/js-karnal"
+  title = "Karnal WMS — JavaScript Learning Version"
+  version = "1.0.0"
+  id = "artifacts/js-karnal"
+  router = "path"
+
+  [[services]]
+  name = "web"
+  paths = ["/js-karnal"]
+  localPort = 3001
+
+  [services.development]
+  run = "node server.js"
+
+  [services.env]
+  PORT = "3001"
+  BASE_PATH = "/js-karnal"
+  

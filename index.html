@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+  index.html — The single HTML page that the browser loads.
+  
+  This is a "Single Page Application" (SPA).
+  Instead of loading a new HTML file for every page,
+  we show/hide different <section> blocks using JavaScript.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karnal Waste Management — JS Version</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Sidebar Navigation ────────────────────────────────── -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="icon">🚛</div>
+      <div>
+        <div class="name">Karnal District</div>
+        <div class="sub">WASTE MANAGEMENT</div>
+      </div>
+    </div>
+
+    <!-- Each button calls showPage('pagename') in app.js -->
+    <button class="nav-link active" id="nav-dashboard"
+            onclick="showPage('dashboard')">
+      <span class="nav-icon">📊</span>
+      <span>Dashboard</span>
+    </button>
+
+    <button class="nav-link" id="nav-routes"
+            onclick="showPage('routes')">
+      <span class="nav-icon">🗺️</span>
+      <span>Routes</span>
+    </button>
+
+    <button class="nav-link" id="nav-warnings"
+            onclick="showPage('warnings')">
+      <span class="nav-icon">⚠️</span>
+      <span>Warnings</span>
+    </button>
+
+    <button class="nav-link" id="nav-collections"
+            onclick="showPage('collections')">
+      <span class="nav-icon">☑️</span>
+      <span>Collections</span>
+    </button>
+
+    <button class="nav-link" id="nav-fuel"
+            onclick="showPage('fuel')">
+      <span class="nav-icon">⛽</span>
+      <span>Fuel Savings</span>
+    </button>
+  </nav>
+
+  <!-- ── Main Content ───────────────────────────────────────── -->
+  <main class="main">
+
+    <!-- Page 1: Dashboard -->
+    <section id="page-dashboard">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Live overview of the Karnal district waste management system.</p>
+      </div>
+      <!-- Content injected by loadDashboard() in app.js -->
+      <div id="dashboard-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Page 2: Routes List -->
+    <section id="page-routes" hidden>
+      <div class="page-header">
+        <h1>Routes</h1>
+        <p>All 7 garbage collection routes across Karnal district.</p>
+      </div>
+      <div id="routes-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Page 3: Route Detail (shown when you click a route card) -->
+    <section id="page-route-detail" hidden>
+      <button class="back-btn" onclick="showPage('routes')">← Back to Routes</button>
+      <div id="route-detail-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Page 4: Warnings -->
+    <section id="page-warnings" hidden>
+      <div class="page-header">
+        <h1>Priority Warnings</h1>
+        <p>Houses not collected in 14+ days — urgent action required.</p>
+      </div>
+      <div id="warnings-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Page 5: Collections Log -->
+    <section id="page-collections" hidden>
+      <div class="page-header">
+        <h1>Collection Log</h1>
+        <p>Garbage collection records for the past 7 days.</p>
+      </div>
+      <div id="collections-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Page 6: Fuel Savings -->
+    <section id="page-fuel" hidden>
+      <div class="page-header">
+        <h1>Fuel Savings</h1>
+        <p>Daily fuel and cost savings from Dijkstra route optimization.</p>
+      </div>
+      <div id="fuel-content"><div class="spinner">Loading…</div></div>
+    </section>
+
+  </main>
+
+  <!-- Load the Dijkstra algorithm first, then the app logic -->
+  <script src="dijkstra.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

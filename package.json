@@ -1,0 +1,13 @@
+{
+  "name": "@workspace/js-karnal",
+  "version": "1.0.0",
+  "description": "Karnal Waste Management — Plain JavaScript (Learning Version)",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "pg": "^8.11.0"
+  }
+}
